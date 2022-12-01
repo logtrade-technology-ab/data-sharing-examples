@@ -8,10 +8,8 @@ namespace Logtrade.Iol.Examples.OAuth.Core.Services
 {
     public class OAuthConnector
     {
-        /// <summary>
-        /// This is just a dummy store
-        /// </summary>
-        public static List<string> dummyStateDatabase = new List<string>();
+        private static List<string> dummyStateDatabase = new List<string>();
+
         private readonly ILogger<OAuthConnector> logger;
 
         public OAuthConnector(ILogger<OAuthConnector> logger)
