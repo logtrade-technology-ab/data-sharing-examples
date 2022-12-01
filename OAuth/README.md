@@ -1,5 +1,5 @@
 # Introduction 
-This is a demo application demonstrating how to make a connection to IoL via OAuth.
+This is a demo application on how to make a connection to IoL via OAuth.
 
 You can find further doumentation about how to do this in the [developer documentation](https://developer.logtrade.info/logtrade-iol-core-programmers-guide/connecting-applications/).
 
