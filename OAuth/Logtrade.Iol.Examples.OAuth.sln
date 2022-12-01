@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logtrade.Iol.Examples.OAuth.Web", "Logtrade.Iol.Examples.OAuth.Web\Logtrade.Iol.Examples.OAuth.Web.csproj", "{D64CD9D7-D151-480B-A1DD-3B99B16C586A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logtrade.Iol.Examples.OAuth.Core", "Logtrade.Iol.Examples.OAuth.Core\Logtrade.Iol.Examples.OAuth.Core.csproj", "{3C2A6CC4-4CC6-4303-A96C-B4972F5E5E63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D64CD9D7-D151-480B-A1DD-3B99B16C586A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64CD9D7-D151-480B-A1DD-3B99B16C586A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64CD9D7-D151-480B-A1DD-3B99B16C586A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64CD9D7-D151-480B-A1DD-3B99B16C586A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C2A6CC4-4CC6-4303-A96C-B4972F5E5E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C2A6CC4-4CC6-4303-A96C-B4972F5E5E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C2A6CC4-4CC6-4303-A96C-B4972F5E5E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C2A6CC4-4CC6-4303-A96C-B4972F5E5E63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C71109E-0CB1-4396-9ACB-14F2DF84026F}
+	EndGlobalSection
+EndGlobal

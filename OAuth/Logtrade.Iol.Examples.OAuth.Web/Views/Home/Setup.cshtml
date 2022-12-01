@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Hosting;
+@using Microsoft.Extensions.Hosting;
+@inject IWebHostEnvironment HostEnvironment
+
+@{
+    ViewData["Title"] = "Setup";
+}
+<div>
+    <h1>Setup</h1>
+    <p>How to set up this test application:</p>
+    <ol>
+        <li>
+            Set up an <a href="https://ngrok.com/docs/getting-started">ngrok tunnel</a> to this application with <code>ngrok http https://@Context.Request.Host</code>
+            <br />
+            <img src="/img/setup/1-start-ngrok.jpg" class="img-fluid" alt="Responsive image" style="width:50%">
+        </li>
+        <li>
+            Create an application, for the authorization callback URL use &lt;above_ngrok_address&gt;/confirm_oauth, e.g. https://3c14-150-143-193-167.ngrok.io/confirm_oauth
+            <br />
+            For this application you should add the rights of <code>api.tradeunit.edit</code>, <code>api.transportinstruction.edit</code> and <code>api.transportrequest.edit</code>
+            <img src="/img/setup/2-create-app.jpg" class="img-fluid" alt="Responsive image"  style="width:50%">
+        </li>
+        <li>
+            Get the client Id of the application
+            <br />
+            <img src="/img/setup/3-get-client-id.jpg" class="img-fluid" alt="Responsive image" style="width:50%">
+        </li>
+        <li>Add your application's client id in appsettings.json in <code>Settings.ClientId</code></li>
+    </ol>
+</div>

@@ -1,0 +1,10 @@
+﻿@model ConnectViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h3>Connection</h3>
+    <p>Generated connection string:</p>
+    <p><code>@Model.ConnectionString</code></p>
+    <a href="@Model.ConnectionString" class="btn btn-primary">Test</a>
+</div>
