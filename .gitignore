@@ -338,3 +338,6 @@ ASALocalRun/
 healthchecksdb
 *.ncrunchsolution
 *.ncrunchproject
+
+#Development json
+*.[Dd]evelopment.json
