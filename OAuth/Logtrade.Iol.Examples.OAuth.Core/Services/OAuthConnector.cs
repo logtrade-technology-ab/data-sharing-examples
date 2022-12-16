@@ -47,7 +47,7 @@ namespace Logtrade.Iol.Examples.OAuth.Core.Services
             else if (connection.ScopeObjects.Count > 0)
             {
                 var scopeString = JsonSerializer.Serialize(connection.ScopeObjects);
-                url += $"&scope={scopeString}";
+                url += $"&scope={HttpUtility.UrlEncode(scopeString)}";
             }
 
             logger.Log(LogLevel.Debug, $"Generated connection string of {url}");
