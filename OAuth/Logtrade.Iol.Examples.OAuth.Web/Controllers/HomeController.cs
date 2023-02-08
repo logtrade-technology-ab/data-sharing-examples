@@ -56,11 +56,11 @@ namespace Logtrade.Iol.Examples.OAuth.Web.Controllers
                         Scope = "api.tradeunit.edit",
                         Filtered = new List<KeyValuePair<string, string>>()
                         {
-                            new KeyValuePair<string, string>("currencyCode", "SEK")
+                            new KeyValuePair<string, string>("CurrencyCode", "SEK")
                         },
                         Excluded = new List<KeyValuePair<string, string>>()
                         {
-                            new KeyValuePair<string, string>("quantity", "")
+                            new KeyValuePair<string, string>("Quantity", "")
                         }
                     }
                 };
