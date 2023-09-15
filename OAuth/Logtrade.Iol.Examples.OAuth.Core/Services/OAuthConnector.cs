@@ -35,7 +35,6 @@ namespace Logtrade.Iol.Examples.OAuth.Core.Services
             if (!string.IsNullOrEmpty(connection.RequestingPartyId))
             {
                 url += $"&requesting_party={connection.RequestingPartyId}";
-                url += $"&share_with_id={connection.RequestingPartyId}";
             }
 
             if (connection.ScopeList.Count > 0)
@@ -50,20 +49,19 @@ namespace Logtrade.Iol.Examples.OAuth.Core.Services
                 url += $"&scope={HttpUtility.UrlEncode(scopeString)}";
             }
 
-            logger.Log(LogLevel.Debug, $"Generated connection string of {url}");
+            logger.LogDebug("Generated connection string of {url}", url);
 
             return url;
         }
 
         public ConnectionResult ProcessResponse(IolResponseModel model)
         {
-            var logMsg = $"Iol notification of connection with response {model.MessageType} for state {model.State}";
-            if (model.AcceptingParty.ContainsKey("legalPartyId"))
-            {
-                logMsg += $" to {model.AcceptingParty["legalPartyId"]}";
-            }
+            logger.LogTrace("Iol notification of connection with response {messageType} for state {state}", model.MessageType, model.State);
 
-            logger.Log(LogLevel.Trace, logMsg);
+            if(!string.IsNullOrEmpty(model.AccessToken))
+            {
+                logger.LogTrace("Received access token: {accessToken}", model.AccessToken);
+            }
 
             if (model.MessageType != "connection_successful")
             {
@@ -85,7 +83,7 @@ namespace Logtrade.Iol.Examples.OAuth.Core.Services
 
                 var bearerToken = "example_bearertoken";
 
-                logger.Log(LogLevel.Trace, $"Successfully connected request {model.State} to {model.AcceptingParty["legalPartyId"]}");
+                logger.LogTrace("Successfully connected request {state} to {legalPartyId}", model.State, model.AcceptingParty["legalPartyId"]);
 
                 return new ConnectionResult()
                 {
@@ -96,7 +94,7 @@ namespace Logtrade.Iol.Examples.OAuth.Core.Services
             else
             {
                 //if you can't process our request you should respond with an error
-                logger.Log(LogLevel.Trace, $"Rejected connection request {model.State}");
+                logger.LogTrace("Rejected connection request {state}", model.State);
 
                 return new ConnectionResult()
                 {
