@@ -8,6 +8,7 @@ namespace Logtrade.Iol.Examples.OAuth.Web
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Logging.AddConsole();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
