@@ -1,0 +1,52 @@
+﻿@model AssistedConnectModel
+@{
+    ViewData["Title"] = "Assisted Connection";
+}
+@if (!string.IsNullOrEmpty(Model.ErrorCode))
+{
+    <div class="text-center">
+        <h3>Request failed</h3>
+        <p>The request failed with the following error:</p>
+        <p><code>@Model.ErrorCode - @Model.ErrorMessage</code></p>
+    </div>
+}
+
+@if(!string.IsNullOrEmpty(Model.State))
+{
+    <div class="text-center">
+        <h3>Email Sent</h3>
+        <p>State:</p>
+        <p><code>@Model.State</code></p>
+        <a href="/" class="btn btn-primary">Home</a>
+    </div>
+}
+
+<form method="post">
+    <h1>Creating a connection string</h1>
+    <p>You can use the controls below to create example connection strings</p>
+    <div class="form-group">
+        <label for="SysAdminToken">System Admin Token</label>
+        @Html.EditorFor(e => e.SysAdminToken, new { htmlAttributes = new { @class = "form-control", placeholder = "e.g. jrvmtaa1n2b79cbuiqf14sfeeowjwnlt4e3qa9czq5ojktt3xa3y" } })
+        @Html.ValidationMessageFor(e => e.SysAdminToken)
+        <small class="form-text text-muted">This is a system adminstrator token you generate to allow you to make connection requests. You would store this secret on your server as a config value</small>
+    </div>
+    
+    <div class="form-group">
+        <label for="ClientId">Client Id</label>
+        @Html.EditorFor(e => e.ClientId, new { htmlAttributes = new { @class = "form-control", placeholder = "e.g. KcrBRaewVESdrc2sXOxsGQ" } })
+        @Html.ValidationMessageFor(e => e.ClientId)
+    </div>
+    
+    <div class="form-group">
+        <label>Connect to</label>
+        @Html.EditorFor(e => e.ConnectToId, new { htmlAttributes = new { @class = "form-control", placeholder = "e.g. https://iol.logtrade.org/l.abcd123" } })
+        @Html.ValidationMessageFor(e => e.ConnectToId)
+        <small class="form-text text-muted">The Iol Organisation Identity that you want to send a connection request to</small>
+    </div>
+    <div class="form-group">
+        <label>Requesting party</label>
+        @Html.EditorFor(e => e.RequestingPartyId, new { htmlAttributes = new { @class = "form-control", placeholder = "e.g. https://iol.logtrade.org/l.abcd123" } })
+        <small class="form-text text-muted">If you're connecting two organizations, an iol account id</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

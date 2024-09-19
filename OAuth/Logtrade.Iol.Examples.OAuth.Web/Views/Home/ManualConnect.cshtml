@@ -1,0 +1,30 @@
+﻿@model ManualConnectModel
+@{
+    ViewData["Title"] = "Manual Connection";
+}
+
+<form method="post">
+    <h1>Creating a connection string</h1>
+    @if (!string.IsNullOrWhiteSpace(Model.ConnectionString))
+    {
+        <div class="text-center">
+            <h3>Connection</h3>
+            <p>Generated connection string:</p>
+            <p><code>@Model.ConnectionString</code></p>
+            <a href="@Model.ConnectionString" class="btn btn-primary">Test</a>
+        </div>
+    }
+    <p>You can use the controls below to create example connection strings</p>
+    <div class="form-group">
+        <label for="ClientId">Client Id</label>
+        @Html.EditorFor(e => e.ClientId, new { htmlAttributes = new { @class = "form-control", placeholder = "e.g. KcrBRaewVESdrc2sXOxsGQ" } })
+        @Html.ValidationMessageFor(e => e.ClientId)
+    </div>
+    <div class="form-group">
+        <label for="RequestingParty">Requesting party</label>
+        @Html.EditorFor(e => e.RequestingPartyId, new { htmlAttributes = new { @class = "form-control", placeholder = "e.g. https://iol.logtrade.org/l.abcd123" } })
+        @Html.ValidationMessageFor(e => e.RequestingPartyId)
+        <small class="form-text text-muted">If your app acts as a middleman connecting two organizations, the iol account id you are connecting on behalf of</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

@@ -7,7 +7,6 @@
 
     public class Settings
     {
-        public string IolDomain { get; set; } = "";
-        public string ClientId { get; set; } = "";
+        public string IolDomain { get; set; } = "https://iol.logtrade.org";
     }
 }

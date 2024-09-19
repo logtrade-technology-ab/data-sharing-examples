@@ -1,0 +1,11 @@
+﻿@model AssistedConnectModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h3>Email(s) sent</h3>
+    <p>An email requesting a connection to @Model.ClientId has been sent to any sysadmins on the account.</p>
+    @* <p>If you have sent it to your own account you can see the .</p> *@
+    <p>Client id: @Model.ClientId</p>
+    <p>State: @Model.State</p>
+</div>

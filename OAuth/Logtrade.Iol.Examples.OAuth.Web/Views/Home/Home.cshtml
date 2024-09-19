@@ -1,38 +1,52 @@
-﻿@model HomeViewModel
+﻿@using Logtrade.Iol.Examples.OAuth.Core.Models.ExampleRepository
+@model List<ConnectionRecord>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Connect to IoL";
 }
-<form action="/connect" method="post">
-    <h1>Creating a connection string</h1>
-    <p>You can use the controls below to create example connection strings</p>
-    <div class="form-group">
-        <label>Scopes</label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="Scope" id="Scope1" value="0" checked>
-        <label class="form-check-label" for="Scope1">
-            Standard scopes
-        </label>
-        <small class="form-text text-muted">As defined by application</small>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="Scope" value="1" id="Scope2">
-        <label class="form-check-label" for="Scope2">
-            Custom scope array
-        </label>
-        <small class="form-text text-muted">When you don't need to set any filters, this example will set <code>api.tradeunit.edit</code> and <code>api.transportinstruction.edit</code></small>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="Scope" value="2" id="Scope3">
-        <label class="form-check-label" for="Scope3">
-            Custom scope objects - 
-        </label>
-        <small class="form-text text-muted">When you need to set filters, this example will set <code>api.tradeunit.edit</code> with an access filter on CurrencyCode and an exclude filter on Quantity</small>
-    </div>
-    <div class="form-group">
-        <label>Requesting party</label>
-        <input class="form-control" name="RequestingParty" />
-        <small class="form-text text-muted">If you're connecting two organizations, an iol account id</small>
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-</form>
+@section Header {
+    @* Auto-refresh to update table *@
+    <meta http-equiv="refresh" content="5">
+}
+
+<h1>Creating a connection</h1>
+<p>To get this application working locally, you will need to follow the <a href="/setup">setup instructions</a></p>
+<p>You can connect in two ways. Either you can make an API request to get IoL to send an email to the client's sysadmins to connect.</p>
+
+<div class="text-center mb-2">
+    <a href="/assisted-connect" class="btn btn-primary">Assisted Connect</a>
+</div>
+<p>Or you can create a connection url yourself, so a user can click a button or link in an email, log in to their IoL account, and accept the connection.</p>
+<div class="text-center mb-2">
+    <a href="/manual-connect" class="btn btn-primary">Manual Connect</a>
+</div>
+<p>With either method, on accepting or rejecting the connection request, your server will get informed of the connection and you can track the status of those requests below.</p>
+<h3>Connection Requests</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Started</th>
+            <th>Type</th>
+            <th>State</th>
+            <th>Connecting To</th>
+            <th>Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var connection in Model)
+        {
+            <tr>
+                <td>@connection.Started</td>
+                <td>@connection.ConnectionType</td>
+                <td>@connection.ConnectionState</td>
+                <td>@connection.IolOrganisationIdentity</td>
+                <td>@connection.Completed</td>
+            </tr>
+        }
+        @if(Model.Count == 0)
+        {
+            <tr>
+                <td colspan="5">No connections started yet</td>
+            </tr>
+        }
+    </tbody>
+</table>
