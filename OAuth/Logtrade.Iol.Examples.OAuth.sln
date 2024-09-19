@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logtrade.Iol.Examples.OAuth.Web", "Logtrade.Iol.Examples.OAuth.Web\Logtrade.Iol.Examples.OAuth.Web.csproj", "{D64CD9D7-D151-480B-A1DD-3B99B16C586A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logtrade.Iol.Examples.OAuth.Web", "Logtrade.Iol.Examples.OAuth.Web\Logtrade.Iol.Examples.OAuth.Web.csproj", "{D64CD9D7-D151-480B-A1DD-3B99B16C586A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logtrade.Iol.Examples.OAuth.Core", "Logtrade.Iol.Examples.OAuth.Core\Logtrade.Iol.Examples.OAuth.Core.csproj", "{3C2A6CC4-4CC6-4303-A96C-B4972F5E5E63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logtrade.Iol.Examples.OAuth.Core", "Logtrade.Iol.Examples.OAuth.Core\Logtrade.Iol.Examples.OAuth.Core.csproj", "{3C2A6CC4-4CC6-4303-A96C-B4972F5E5E63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{202715FE-0FAC-4852-8416-49182E03BE3F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

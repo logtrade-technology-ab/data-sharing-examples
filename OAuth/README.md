@@ -7,4 +7,4 @@ The first time running the web project will give you instructions on how to set 
 
 You will need to use ngrok as a reverse proxy for your localhost, or something similar, as to successfully complete an OAuth connection IoL must post a confirmantion to your server and expects to recieve a response.
 
-You can find further documentation about how to do this in the [developer documentation](https://developer.logtrade.info/logtrade-iol-core-programmers-guide/connecting-applications/).
+You can find further documentation about how to do this in the [developer documentation](https://developer.logtrade.info/docs/datasharing-platform/1vmdscw3kxe0c-overview/).
