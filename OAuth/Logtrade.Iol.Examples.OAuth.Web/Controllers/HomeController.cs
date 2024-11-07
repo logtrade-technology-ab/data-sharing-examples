@@ -32,11 +32,9 @@ public class HomeController(IolOAuthConnector oAuthConnector, ExampleRepository 
 
         var request = await oAuthConnector.MakeAssistedConnectionRequest(connection);
 
-
-
-        //TODO: finish this off
-        if (request == null)
-            throw new Exception("error here");
+        model.State = request.Request?.State;
+        model.ErrorCode = request.ErrorCode;
+        model.ErrorMessage = request.ErrorMessage;
 
         return View(model);
     }
